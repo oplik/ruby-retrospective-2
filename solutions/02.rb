@@ -1,4 +1,7 @@
 class Song
+  #знам, че е грозно и нередно, но трябваше да смаля дължината
+  # на имената на методите за проверка, понеже се оказа,
+  # че не мога да пренасям условия на няколко реда
   attr_accessor :name, :artist, :genre, :subgenre, :tags
   def initialize(songname, artist, lotsofgenres, lotsoftags)
     @name, @artist = songname.strip, artist.strip
@@ -10,6 +13,7 @@ class Song
     @tags.each {|tag| tag.strip} if tags!=nil
   end
   def matches? cri
+  #за този ред става въпрос
     if a?(cri[:artist]) and n?(cri[:name]) and t?(cri[:tags]) and f?(cri[:filter])
       then true
     else
